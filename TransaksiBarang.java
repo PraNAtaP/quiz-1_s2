@@ -36,7 +36,6 @@ public class TransaksiBarang {
                         pembelians[jumlahPembelian] = barangs[i];
                         jumlahPembelian++;
                         barangs[i].stok--;
-                        System.out.println("Pembelian berhasil: " + barangs[i].nama);
                     } else {
                         System.out.println("Keranjang pembelian penuh!");
                     }
@@ -52,8 +51,12 @@ public class TransaksiBarang {
     public void tampilkanPembelian() {
         System.out.printf("%-10s %-20s %-15s%n", "Kode", "Nama", "Harga");
         System.out.println("==================================================================");
+        int totalHarga = 0; 
         for (int i = 0; i < jumlahPembelian; i++) {
-            System.out.printf("%-10s %-20s Rp%-10d%n", pembelians[i].kode, pembelians[i].nama, pembelians[i].harga);
+            System.out.printf("%-10s %-20s Rp.%-10d%n", pembelians[i].kode, pembelians[i].nama, pembelians[i].harga);
+            totalHarga += pembelians[i].harga; 
         }
+        System.out.println("==================================================================");
+        System.out.println("Total Harga Pembelian : Rp." + totalHarga);
     }
 }
